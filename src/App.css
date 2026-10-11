@@ -1,0 +1,447 @@
+/* ===== FireFinance Budget Dashboard — Fire-themed Dark Navy ===== */
+
+:root {
+  /* Colour system */
+  --navy-900: #0a1929;
+  --navy-800: #102a43;
+  --navy-700: #1a3a5c;
+  --navy-600: #244c73;
+  --navy-500: #2e5e8a;
+
+  --white: #ffffff;
+  --off-white: #e8eef5;
+
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --green-400: #4ade80;
+
+  --fire-orange: #ff6b35;
+  --fire-amber: #f7931e;
+  --fire-yellow: #ffc93c;
+  --fire-red: #ef4444;
+  --fire-glow: rgba(255, 107, 53, 0.4);
+
+  /* Spacing (8px system) */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: 24px;
+  --sp-4: 32px;
+  --sp-5: 40px;
+  --sp-6: 56px;
+
+  /* Radii */
+  --radius: 12px;
+  --radius-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--navy-900);
+  color: var(--off-white);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header ===== */
+
+.app-header {
+  background: linear-gradient(135deg, var(--navy-800) 0%, var(--navy-700) 100%);
+  border-bottom: 3px solid var(--fire-orange);
+  padding: var(--sp-4) var(--sp-5);
+  box-shadow: 0 4px 24px var(--fire-glow);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.flame-icon {
+  font-size: 3rem;
+  animation: flicker 2s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 10px var(--fire-glow));
+}
+
+@keyframes flicker {
+  0%   { transform: scale(1) rotate(-2deg); }
+  50%  { transform: scale(1.08) rotate(1deg); }
+  100% { transform: scale(0.98) rotate(-1deg); }
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+
+.header-text p {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #8aa9c9;
+}
+
+/* ===== Main Layout ===== */
+
+.dashboard {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--sp-4) var(--sp-5);
+}
+
+/* ===== Card base ===== */
+
+.card {
+  background: var(--navy-800);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  border: 1px solid var(--navy-600);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--sp-3);
+}
+
+.card-header h2,
+.card h2 {
+  margin: 0 0 var(--sp-3);
+  font-size: 1.25rem;
+  color: var(--white);
+}
+
+/* ===== Summary Cards ===== */
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.summary-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+  text-align: center;
+  border-top: 3px solid var(--fire-orange);
+}
+
+.summary-label {
+  font-size: 0.85rem;
+  color: #8aa9c9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* Positive = green, negative = red */
+.summary-card.positive {
+  border-top-color: var(--green-500);
+}
+
+.summary-card.positive .summary-value {
+  color: var(--green-400);
+}
+
+.summary-card.negative {
+  border-top-color: var(--fire-red);
+}
+
+.summary-card.negative .summary-value {
+  color: var(--fire-red);
+}
+
+/* ===== Dashboard Grid (form + chart) ===== */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+/* ===== Budget Form ===== */
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid var(--fire-amber);
+  color: var(--fire-amber);
+  padding: var(--sp-1) var(--sp-2);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: var(--fire-amber);
+  color: var(--navy-900);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: #b0c4de;
+  font-weight: 500;
+}
+
+.income-group {
+  margin-bottom: var(--sp-2);
+}
+
+.income-group label {
+  color: var(--fire-yellow);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency-prefix {
+  position: absolute;
+  left: 12px;
+  color: #8aa9c9;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 10px 12px 10px 28px;
+  background: var(--navy-900);
+  border: 1px solid var(--navy-600);
+  border-radius: var(--radius);
+  color: var(--white);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: var(--fire-orange);
+  box-shadow: 0 0 0 3px var(--fire-glow);
+}
+
+.divider {
+  height: 1px;
+  background: var(--navy-600);
+  margin: var(--sp-2) 0;
+}
+
+.expenses-title {
+  font-size: 1rem;
+  color: var(--off-white);
+  margin: 0 0 var(--sp-2);
+}
+
+.expense-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-2);
+}
+
+.field-icon {
+  margin-right: 4px;
+}
+
+/* ===== Expense Chart ===== */
+
+.expense-chart {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  text-align: center;
+  color: #8aa9c9;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: var(--sp-2);
+  opacity: 0.5;
+}
+
+.chart-tooltip {
+  background: var(--navy-900);
+  border: 1px solid var(--fire-orange);
+  border-radius: var(--radius);
+  padding: var(--sp-1) var(--sp-2);
+  display: flex;
+  flex-direction: column;
+}
+
+.tooltip-name {
+  color: #b0c4de;
+  font-size: 0.8rem;
+}
+
+.tooltip-value {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.legend-text {
+  color: var(--off-white) !important;
+  font-size: 0.85rem;
+}
+
+/* ===== Savings Tip ===== */
+
+.savings-tip {
+  border-left: 4px solid var(--fire-yellow);
+  margin-bottom: var(--sp-4);
+}
+
+.tip-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+  margin-bottom: var(--sp-2);
+}
+
+.tip-header h2 {
+  margin: 0;
+}
+
+.tip-icon {
+  font-size: 1.5rem;
+}
+
+.tip-text {
+  color: var(--off-white);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 var(--sp-2);
+}
+
+.tip-disclaimer {
+  font-size: 0.8rem;
+  color: #6a819a;
+  margin: 0;
+  font-style: italic;
+}
+
+/* ===== Warning Banner ===== */
+
+.warning-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05));
+  border: 1px solid var(--fire-red);
+  border-radius: var(--radius);
+  padding: var(--sp-3);
+  margin-bottom: var(--sp-4);
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from { box-shadow: 0 0 8px rgba(239, 68, 68, 0.2); }
+  to   { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+}
+
+.warning-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.warning-text strong {
+  color: var(--fire-red);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.warning-text p {
+  margin: 0;
+  color: var(--off-white);
+  font-size: 0.9rem;
+}
+
+/* ===== Footer ===== */
+
+.app-footer {
+  text-align: center;
+  padding: var(--sp-3) var(--sp-5);
+  border-top: 1px solid var(--navy-700);
+  background: var(--navy-900);
+}
+
+.app-footer p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 0.8rem;
+  color: #6a819a;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .expense-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .dashboard {
+    padding: var(--sp-2) var(--sp-2);
+  }
+}
