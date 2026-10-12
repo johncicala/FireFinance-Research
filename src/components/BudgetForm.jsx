@@ -1,5 +1,5 @@
 // BudgetForm: a controlled form that lets the user enter monthly income and
-// five expense categories. Every input calls the parent's onChange handler so
+// six expense categories. Every input calls the parent's onChange handler so
 // the App component stays the single source of truth for all budget values.
 
 // The expense fields we collect, in display order.
@@ -8,6 +8,7 @@ const EXPENSE_FIELDS = [
   { key: 'groceries', label: 'Groceries', icon: '🛒' },
   { key: 'transportation', label: 'Transportation', icon: '🚗' },
   { key: 'entertainment', label: 'Entertainment', icon: '🎬' },
+  { key: 'subscriptions', label: 'Subscriptions', icon: '📱' },
   { key: 'other', label: 'Other Expenses', icon: '📦' },
 ]
 

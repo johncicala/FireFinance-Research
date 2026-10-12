@@ -11,15 +11,16 @@ import {
   Legend,
 } from 'recharts'
 
-// Fire-themed palette: warm oranges, ambers, and a green accent.
-const COLORS = ['#FF6B35', '#F7931E', '#FFC93C', '#FF5722', '#C70039']
+// Fire-themed palette.
+const COLORS = ['#FF6B35', '#F7931E', '#FFC93C', '#FF5722', '#9B59B6', '#C70039']
 
-// Human-readable labels + currency formatting for the tooltip and legend.
+// Labels + currency formatting for the tooltip and legend.
 const LABELS = {
   rent: 'Rent / Housing',
   groceries: 'Groceries',
   transportation: 'Transportation',
   entertainment: 'Entertainment',
+  subscriptions: 'Subscriptions',
   other: 'Other',
 }
 
@@ -33,7 +34,7 @@ const fmt = (n) =>
 function ExpenseChart({ values }) {
   // Build the chart data array from the expense fields, filtering out
   // any categories with zero spend so the chart stays uncluttered.
-  const data = ['rent', 'groceries', 'transportation', 'entertainment', 'other']
+  const data = ['rent', 'groceries', 'transportation', 'entertainment', 'subscriptions', 'other']
     .map((key) => ({ name: LABELS[key], value: Number(values[key]) || 0 }))
     .filter((item) => item.value > 0)
 

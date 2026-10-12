@@ -14,6 +14,7 @@ const SAMPLE_VALUES = {
   groceries: 400,
   transportation: 200,
   entertainment: 150,
+  subscriptions: 50,
   other: 250,
 }
 
@@ -24,12 +25,13 @@ function App() {
 
   // --- Derived calculations (recomputed on every render) ---
 
-  // Sum of all five expense categories.
+  // Sum of all six expense categories.
   const totalExpenses =
     (Number(values.rent) || 0) +
     (Number(values.groceries) || 0) +
     (Number(values.transportation) || 0) +
     (Number(values.entertainment) || 0) +
+    (Number(values.subscriptions) || 0) +
     (Number(values.other) || 0)
 
   // What's left after expenses this month.
