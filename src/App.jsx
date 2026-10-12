@@ -6,6 +6,7 @@ import ExpenseChart from './components/ExpenseChart'
 import SavingsTip from './components/SavingsTip'
 import WarningBanner from './components/WarningBanner'
 import './App.css'
+import SavingsGoal from './components/SavingsGoal'
 
 // Sample values used on first load and when the Reset button is pressed.
 const SAMPLE_VALUES = {
@@ -69,7 +70,7 @@ function App() {
           />
           <ExpenseChart values={values} />
         </div>
-
+        <SavingsGoal remainingIncome={remainingIncome} />
         <SavingsTip savingsRate={savingsRate} />
       </main>
 

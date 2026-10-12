@@ -445,3 +445,67 @@ body {
     padding: var(--sp-2) var(--sp-2);
   }
 }
+
+/* Savings Goal Input Styling */
+
+.goal-description {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.goal-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.goal-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #fff7ed;
+  border: 2px solid #fed7aa;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+.goal-input-wrapper:focus-within {
+  border-color: #f97316;
+  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.12);
+}
+
+.goal-dollar {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f97316;
+  margin-right: 10px;
+}
+
+.goal-input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  font-family: inherit;
+}
+
+.goal-input::-webkit-inner-spin-button,
+.goal-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.goal-input {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
