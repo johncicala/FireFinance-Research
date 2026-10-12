@@ -32,6 +32,13 @@ function SavingsGoal({ remainingIncome }) {
   />
 </div>
 
+    <button
+  type="button"
+  className="goal-reset-btn"
+  onClick={() => setGoal(1000)}
+>
+  ↺ Reset Savings Goal
+</button>
       <p>Goal Progress: {progress.toFixed(1)}%</p>
 
       <progress value={progress} max="100" />
